@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarea 2 - CSS3 (Box Model)</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Tarea 2: CSS3</h1>
+    <p>Sección 2.1 - Box Model + Inline vs Block + Display</p>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- 2.1 BOX MODEL -->
+    <section class="tarjeta">
+      <h2>2.1 Modelo de Caja (Box Model)</h2>
+      <p>
+        La siguiente caja demuestra <b>content</b>, <b>padding</b>, <b>border</b> y <b>margin</b>.
+      </p>
+
+      <div class="caja-demo">
+        <p class="caja-titulo">Caja de ejemplo</p>
+        <p>
+          Este texto es el <b>contenido</b>.
+          El espacio interno es <b>padding</b>.
+          La línea es <b>border</b>.
+          El espacio externo es <b>margin</b>.
+        </p>
+      </div>
+
+      <div class="nota">
+        <p><b>Tip:</b> En el navegador, clic derecho → “Inspeccionar” para ver el Box Model.</p>
+      </div>
+    </section>
+
+    <!-- INLINE vs BLOCK -->
+    <section class="tarjeta">
+      <h2>Diferencia: elementos block vs inline</h2>
+
+      <h3>Ejemplo con elementos block (div)</h3>
+      <div class="bloque">Soy un DIV (block) - ocupo todo el ancho disponible</div>
+      <div class="bloque">Otro DIV (block) - salto de línea automático</div>
+
+      <h3>Ejemplo con elementos inline (span)</h3>
+      <p>
+        Texto normal y aquí un
+        <span class="inline">SPAN (inline)</span>
+        y aquí otro
+        <span class="inline">SPAN (inline)</span>
+        (no saltan de línea).
+      </p>
+    </section>
+
+    <!-- DISPLAY CAMBIANDO COMPORTAMIENTO -->
+    <section class="tarjeta">
+      <h2>Propiedad display para cambiar comportamiento</h2>
+
+      <h3>Span convertido a block</h3>
+      <span class="span-a-block">Soy SPAN pero me veo como bloque</span>
+      <span class="span-a-block">Otro SPAN como bloque</span>
+
+      <h3>Div convertido a inline</h3>
+      <div class="div-a-inline">Soy DIV pero me veo inline</div>
+      <div class="div-a-inline">Otro DIV inline</div>
+
+      <h3>Inline-block (permite tamaño + se queda en línea)</h3>
+      <span class="inline-block">inline-block 1</span>
+      <span class="inline-block">inline-block 2</span>
+      <span class="inline-block">inline-block 3</span>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <small>ISW-512 Diseño de Aplicaciones Web - Tarea 2</small>
+  </footer>
+
+</body>
+</html>
+
+<!-- ========================= -->
+<!-- 2.2 POSICIONAMIENTO / DISPLAY / OVERFLOW / VISIBILITY / Z-INDEX -->
+<!-- ========================= -->
+
+<section class="tarjeta">
+  <h2>2.2 Position (static, relative, absolute, fixed)</h2>
+
+  <h3>A) Static (por defecto)</h3>
+  <div class="pos-demo static">
+    Soy <b>static</b> (posición normal del documento).
+  </div>
+
+  <h3>B) Relative</h3>
+  <div class="pos-demo relative">
+    Soy <b>relative</b> (me puedo mover con top/left sin salir del flujo).
+  </div>
+
+  <h3>C) Absolute (dentro de un contenedor relative)</h3>
+  <div class="contenedor-abs">
+    <p>Este contenedor es <b>relative</b>.</p>
+    <div class="pos-demo absolute">
+      Soy <b>absolute</b> (me posiciono respecto al contenedor).
+    </div>
+  </div>
+
+  <h3>D) Fixed (pegado a la pantalla)</h3>
+  <p>
+    Abajo a la derecha verás un botón fijo “TOP”.
+    Baja (scroll) y verás que se queda pegado.
+  </p>
+</section>
+
+<section class="tarjeta">
+  <h2>2.2 Float y Clear</h2>
+
+  <div class="float-caja">
+    <div class="float-left">FLOAT LEFT</div>
+    <div class="float-right">FLOAT RIGHT</div>
+
+    <p>
+      Este texto intenta rodear a los elementos flotantes. La idea es demostrar cómo
+      <b>float</b> saca los elementos del flujo normal y permite que el texto fluya alrededor.
+    </p>
+
+    <div class="clear-both"></div>
+
+    <p class="despues-clear">
+      Este párrafo está <b>después del clear:both</b>, por eso ya no se acomoda a la par de los floats.
+    </p>
+  </div>
+</section>
+
+<section class="tarjeta">
+  <h2>2.2 Display (none) + Visibility (hidden)</h2>
+
+  <p>
+    Aquí se ve la diferencia:
+    <b>display: none</b> desaparece y NO deja espacio.
+    <b>visibility: hidden</b> desaparece PERO deja el espacio.
+  </p>
+
+  <div class="fila-demo">
+    <div class="caja-mini">Caja normal</div>
+    <div class="caja-mini oculto-display">display: none</div>
+    <div class="caja-mini">Caja normal</div>
+  </div>
+
+  <div class="fila-demo">
+    <div class="caja-mini">Caja normal</div>
+    <div class="caja-mini oculto-visibility">visibility: hidden</div>
+    <div class="caja-mini">Caja normal</div>
+  </div>
+</section>
+
+<section class="tarjeta">
+  <h2>2.2 Overflow (visible, hidden, scroll, auto)</h2>
+
+  <div class="overflow-grid">
+    <div class="overflow-demo ov-visible">
+      <h4>visible</h4>
+      <p>
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+      </p>
+    </div>
+
+    <div class="overflow-demo ov-hidden">
+      <h4>hidden</h4>
+      <p>
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+      </p>
+    </div>
+
+    <div class="overflow-demo ov-scroll">
+      <h4>scroll</h4>
+      <p>
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+      </p>
+    </div>
+
+    <div class="overflow-demo ov-auto">
+      <h4>auto</h4>
+      <p>
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+        Mucho texto… Mucho texto… Mucho texto… Mucho texto…
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="tarjeta">
+  <h2>2.2 Z-Index (apilamiento)</h2>
+
+  <div class="zona-z">
+    <div class="capa capa-1">z-index: 1</div>
+    <div class="capa capa-2">z-index: 2</div>
+    <div class="capa capa-3">z-index: 3</div>
+  </div>
+
+  <p>
+    La capa con z-index mayor debe quedar encima (cuando se superponen).
+  </p>
+</section>
+
+<!-- Botón fixed (position:fixed) -->
+<a class="btn-top" href="#top">TOP</a>
+
+<!-- ========================= -->
+<!-- 2.3 FLEXBOX -->
+<!-- ========================= -->
+<section class="tarjeta">
+  <h2>2.3 Flexbox en CSS3</h2>
+  <p>
+    Ejemplos de <b>Flex Container</b> (direction, wrap, flow, justify-content, align-items, align-content),
+    <b>Flex Items</b> (order, grow, shrink, basis, flex, align-self) y <b>Responsive</b>.
+  </p>
+
+  <h3>A) Flex Container</h3>
+
+  <h4>flex-direction + justify-content + align-items</h4>
+  <div class="flex-demo flex-dir">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+
+  <h4>flex-wrap + align-content (varias filas)</h4>
+  <div class="flex-demo flex-wrap">
+    <div class="item">A</div><div class="item">B</div><div class="item">C</div><div class="item">D</div>
+    <div class="item">E</div><div class="item">F</div><div class="item">G</div><div class="item">H</div>
+  </div>
+
+  <h4>flex-flow (direction + wrap en una sola línea)</h4>
+  <div class="flex-demo flex-flow">
+    <div class="item">X</div>
+    <div class="item">Y</div>
+    <div class="item">Z</div>
+    <div class="item">W</div>
+    <div class="item">V</div>
+  </div>
+
+  <hr />
+
+  <h3>B) Flex Items</h3>
+  <p>En esta fila se muestran <b>order</b>, <b>flex-grow</b>, <b>flex-shrink</b>, <b>flex-basis</b>, <b>flex</b> y <b>align-self</b>.</p>
+
+  <div class="flex-items-demo">
+    <div class="card item-1">
+      <b>Item 1</b>
+      <div>order: 2</div>
+      <div>flex: 1 1 140px</div>
+    </div>
+
+    <div class="card item-2">
+      <b>Item 2</b>
+      <div>order: 1</div>
+      <div>flex-grow: 2</div>
+      <div>flex-basis: 160px</div>
+    </div>
+
+    <div class="card item-3">
+      <b>Item 3</b>
+      <div>order: 3</div>
+      <div>flex-shrink: 0</div>
+      <div>align-self: flex-end</div>
+    </div>
+
+    <div class="card item-4">
+      <b>Item 4</b>
+      <div>flex: 0 1 120px</div>
+      <div>(basis + shrink)</div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h3>C) Flex Responsive</h3>
+  <p>
+    Achicá la ventana: en pantallas pequeñas las tarjetas se acomodan en columna.
+    (Se logra con un <b>media query</b>).
+  </p>
+
+  <div class="flex-responsive">
+    <div class="resp-card">Responsive 1</div>
+    <div class="resp-card">Responsive 2</div>
+    <div class="resp-card">Responsive 3</div>
+  </div>
+</section>
